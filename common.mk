@@ -184,6 +184,7 @@ PRODUCT_PACKAGES += \
     charger_fstab.qcom \
     fstab.qcom \
     fstab.qcom.vendor_ramdisk \
+    fstab.zram \
     init.class_main.sh \
     init.oplus.rc \
     init.qcom.early_boot.sh \
