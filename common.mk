@@ -176,14 +176,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/privapp-permissions-hotword.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-hotword.xml
 
-# HWUI
-TARGET_USES_VULKAN := true
-
 # Init
 PRODUCT_PACKAGES += \
     charger_fstab.qcom \
     fstab.qcom \
     fstab.qcom.vendor_ramdisk \
+    fstab.zram \
     init.class_main.sh \
     init.oplus.rc \
     init.kernel.post_boot-memory.sh \
@@ -490,3 +488,12 @@ PRODUCT_COPY_FILES += \
 
 # Inherit from the proprietary files makefile.
 $(call inherit-product, vendor/oneplus/sm8850-common/sm8850-common-vendor.mk)
+
+# DT2W
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/touchpanel.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/touchpanel.kl
+
+# RKPD
+PRODUCT_PRODUCT_PROPERTIES += \
+    remote_provisioning.enable_rkpd=true \
+    remote_provisioning.hostname=remoteprovisioning.googleapis.com
